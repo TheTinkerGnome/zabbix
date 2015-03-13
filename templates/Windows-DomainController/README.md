@@ -1,6 +1,6 @@
 Windows-DomainController
 ======
-This template checks various Performance monitors and services associated with Active Directory, as well as running the dcdiag tool to asses AD health
+This template checks various Performance monitors and services associated with Active Directory, as well as running the dcdiag tool to assess AD health
 
 Usage
 
