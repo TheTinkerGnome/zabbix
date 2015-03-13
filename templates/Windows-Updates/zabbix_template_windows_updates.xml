@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2014-12-24T00:42:40Z</date>
+    <date>2015-03-11T22:20:42Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -24,7 +24,7 @@
             </applications>
             <items>
                 <item>
-                    <name>Windows Updates (High)</name>
+                    <name>Windows Updates (Critical)</name>
                     <type>2</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -183,16 +183,6 @@
         <trigger>
             <expression>{Template Windows Updates:win_updates[optional].last()}&gt;0</expression>
             <name>Updates Need Installing (Optional)</name>
-            <url/>
-            <status>0</status>
-            <priority>2</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{Template Windows Updates:win_updates[high].nodata(60)}=1</expression>
-            <name>Windows Update Script Timeout</name>
             <url/>
             <status>0</status>
             <priority>2</priority>

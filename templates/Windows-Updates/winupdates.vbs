@@ -1,45 +1,51 @@
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-' Name: winupdates.vbs 
-' Created By: David W. Gilmore
-' Version: v1.0
-' Last Updated: 08/12/2013
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'Winupdates.vbs
+'Version 1.1
+'Written By: Dave Gilmore
+'Created On: 02/27/2015
 '
-' Summary: This script checks to see if any Windows Updates are waiting to be installed
-'			and feeds the value to the zabbix_sender process. It will also report if the 
-'			machine needs to be rebooted to complete the install.
+' 
+'Purpose: Given a class of update (high or important) returns a count of the updates waiting
+'			to be installed. Will also return reboot status
+'
+' CHANGELOG
+' v1.1
+' - Cleaned up the code a bit
+' - hostName is now dynamically generated and does not have to be hard coded into the script
 
-serverName = "xxx.xxx.xxx.xxx" 'IP of your Zabbix server
-hostName = "myWindowsServer" 'Hostname of Windows machine as it appears in Zabbix
-zbxSender = "C:\bin\zabbix\bin\win32\zabbix_sender.exe" 'Path to zabbix_sender process
+Function ReturnUpdateCount(updateType)
+	Set updateSession = CreateObject("Microsoft.Update.Session") 
+	Set updateSearcher = updateSession.CreateupdateSearcher()
+	
+	Select Case updateType
+	Case "high"
+		Set searchResult = updateSearcher.Search("IsAssigned=1 and IsHidden=0 and IsInstalled=0 and Type='Software'") 
+	Case "optional"
+		Set searchResult = updateSearcher.Search("IsAssigned=0 and IsInstalled=0 and Type='Software'")
+	End Select
+	ReturnUpdateCount = searchResult.Updates.Count	
 
-updatesHigh = 0
-updatesOptional = 0
+End Function
 
-Set objSearcher = CreateObject("Microsoft.Update.Searcher")
-Set objSysInfo = CreateObject("Microsoft.Update.SystemInfo")
-Set objResults = objSearcher.Search("IsInstalled=0")
-Set colUpdates = objResults.Updates
+Function RebootCheck
+	Set objSysInfo = CreateObject("Microsoft.Update.SystemInfo")
+	RebootCheck = objSysinfo.RebootRequired
+End Function
+
+Set wshNetwork = WScript.CreateObject( "WScript.Network" )
+hostName = wshNetwork.ComputerName
+serverName = "1.2.3.4"
+zbxSender = "C:\bin\zabbix\bin\win32\zabbix_sender.exe"
 Set WSHShell = CreateObject("WScript.Shell")
 
-For i = 0 to colUpdates.Count - 1
-
-	If (colUpdates.Item(i).IsInstalled = False AND colUpdates.Item(i).AutoSelectOnWebSites = False) Then
-		updatesOptional = updatesOptional + 1
-	ElseIf (colUpdates.Item(i).IsInstalled = False AND colUpdates.Item(i).AutoSelectOnWebSites = True) Then
-		updatesHigh = updatesHigh + 1
-	End IF
-    
-Next
-
-updatesTotal = (updatesHigh + updatesOptional)
-
-WSHShell.Exec zbxSender & " -z " & serverName & " -s " & hostName & " -k win_updates[total] -o " & updatesTotal
+updatesHigh = ReturnUpdateCount("high")
+updatesOptional = ReturnUpdateCount("optional")
+strRebootRequired = RebootCheck
 
 WSHShell.Exec zbxSender & " -z " & serverName & " -s " & hostName & " -k win_updates[high] -o " & updatesHigh
 
 WSHShell.Exec zbxSender & " -z " & serverName & " -s " & hostName & " -k win_updates[optional] -o " & updatesOptional
 
-WSHShell.Exec zbxSender & " -z " & serverName & " -s " & hostName & " -k win_updates[reboot] -o " & objSysInfo.RebootRequired
-
+WSHShell.Exec zbxSender & " -z " & serverName & " -s " & hostName & " -k win_updates[reboot] -o " & strRebootRequired
 
 WScript.Quit 0
