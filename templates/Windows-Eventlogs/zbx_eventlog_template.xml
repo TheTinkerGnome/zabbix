@@ -24,7 +24,7 @@
             </applications>
             <items>
                 <item>
-                    <name>Wnidows Application Log</name>
+                    <name>Windows Application Log</name>
                     <type>7</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -67,7 +67,7 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>Wnidows System Log</name>
+                    <name>Windows System Log</name>
                     <type>7</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
