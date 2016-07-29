@@ -882,7 +882,7 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template_AD_Domain_Controller:dcdiag[advertising].str(OK)}&lt;&gt;1</expression>
+            <expression>{Template_AD_Domain_Controller:dcdiag[advertising].last()}&lt;&gt;1</expression>
             <name>DCDiag: Advertising Check Failed</name>
             <url/>
             <status>0</status>
@@ -892,7 +892,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template_AD_Domain_Controller:dcdiag[fsmocheck].str(OK)}&lt;&gt;1</expression>
+            <expression>{Template_AD_Domain_Controller:dcdiag[fsmocheck].last()}&lt;&gt;1</expression>
             <name>DCDiag: FSMO Check Failed</name>
             <url/>
             <status>0</status>
@@ -902,7 +902,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template_AD_Domain_Controller:dcdiag[machineaccount].str(OK)}&lt;&gt;1</expression>
+            <expression>{Template_AD_Domain_Controller:dcdiag[machineaccount].last()}&lt;&gt;1</expression>
             <name>DCDiag: Machine Account Check Failed</name>
             <url/>
             <status>0</status>
@@ -912,7 +912,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template_AD_Domain_Controller:dcdiag[replications].str(OK)}&lt;&gt;1</expression>
+            <expression>{Template_AD_Domain_Controller:dcdiag[replications].last()}&lt;&gt;1</expression>
             <name>DCDiag: Replication Check Failed</name>
             <url/>
             <status>0</status>
@@ -922,7 +922,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template_AD_Domain_Controller:dcdiag[ridmanager].str(OK)}&lt;&gt;1</expression>
+            <expression>{Template_AD_Domain_Controller:dcdiag[ridmanager].last()}&lt;&gt;1</expression>
             <name>DCDiag: RID Manager Check Failed</name>
             <url/>
             <status>0</status>
@@ -932,7 +932,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template_AD_Domain_Controller:dcdiag[services].str(OK)}&lt;&gt;1</expression>
+            <expression>{Template_AD_Domain_Controller:dcdiag[services].last()}&lt;&gt;1</expression>
             <name>DCDiag: Services Check Failed</name>
             <url/>
             <status>0</status>
