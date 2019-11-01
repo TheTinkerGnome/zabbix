@@ -1,0 +1,1 @@
+This template is created to monitor a Microsoft Team Foundation Server that was installed using the Standalone install method. If you are using a Standard SQL Server instance you might want to use a different template for that. 
