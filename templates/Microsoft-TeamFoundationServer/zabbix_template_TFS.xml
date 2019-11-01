@@ -1,88 +1,321 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <zabbix_export>
-    <version>2.0</version>
-    <date>2015-03-11T22:08:45Z</date>
-    <groups>
-        <group>
-            <name>Templates</name>
-        </group>
-    </groups>
-    <templates>
-        <template>
-            <template>Template TFS</template>
-            <name>Template TFS</name>
-            <description/>
-            <groups>
-                <group>
-                    <name>Templates</name>
-                </group>
-            </groups>
-            <applications>
-                <application>
-                    <name>TFS</name>
-                </application>
-            </applications>
-            <items>
-                <item>
-                    <name>Visual Studio Team Foundation Background Job Agent</name>
-                    <type>0</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>service_state[TFSJobAgent]</key>
-                    <delay>30</delay>
-                    <history>90</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>TFS</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                    <logtimefmt/>
-                </item>
-            </items>
-            <discovery_rules/>
-            <macros/>
-            <templates/>
-            <screens/>
-        </template>
-    </templates>
-    <triggers>
-        <trigger>
-            <expression>{Template TFS:service_state[TFSJobAgent].last()}&lt;&gt;0</expression>
-            <name>TFS background Job Agent Service Not Running</name>
-            <url/>
-            <status>0</status>
-            <priority>2</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-    </triggers>
+	<version>2.0</version>
+	<date>2015-03-11T22:08:45Z</date>
+	<groups>
+		<group>
+			<name>Templates</name>
+		</group>
+	</groups>
+	<templates>
+		<template>
+			<template>Template TFS</template>
+			<name>Template TFS</name>
+			<description />
+			<groups>
+				<group>
+					<name>Templates</name>
+				</group>
+			</groups>
+			<applications>
+				<application>
+					<name>Database Engine</name>
+				</application>
+				<application>
+					<name>TFS</name>
+				</application>
+				<application>
+					<name>IIS service</name>
+				</application>
+			</applications>
+			<items>
+				<item>
+					<name>SQL Server (SQLEXPRESS)</name>
+					<type>0</type>
+					<snmp_community />
+					<multiplier>0</multiplier>
+					<snmp_oid />
+					<key>service_state[MSSQL$SQLEXPRESS]</key>
+					<delay>30</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>3</value_type>
+					<allowed_hosts />
+					<units />
+					<delta>0</delta>
+					<snmpv3_contextname />
+					<snmpv3_securityname />
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase />
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase />
+					<formula>1</formula>
+					<delay_flex />
+					<params />
+					<ipmi_sensor />
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username />
+					<password />
+					<publickey />
+					<privatekey />
+					<port />
+					<description />
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>Database Engine</name>
+						</application>
+					</applications>
+					<valuemap />
+					<logtimefmt />
+				</item>
+				<item>
+					<name>Visual Studio Team Foundation Background Job Agent</name>
+					<type>0</type>
+					<snmp_community />
+					<multiplier>0</multiplier>
+					<snmp_oid />
+					<key>service_state[TFSJobAgent]</key>
+					<delay>30</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>3</value_type>
+					<allowed_hosts />
+					<units />
+					<delta>0</delta>
+					<snmpv3_contextname />
+					<snmpv3_securityname />
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase />
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase />
+					<formula>1</formula>
+					<delay_flex />
+					<params />
+					<ipmi_sensor />
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username />
+					<password />
+					<publickey />
+					<privatekey />
+					<port />
+					<description />
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>TFS</name>
+						</application>
+					</applications>
+					<valuemap />
+					<logtimefmt />
+				</item>
+				<item>
+					<name>IIS Service Port 8080 (HTTP)</name>
+					<type>0</type>
+					<snmp_community/>
+					<snmp_oid/>
+					<key>net.tcp.listen[8080]</key>
+					<delay>30</delay>
+					<multiplier>0</multiplier>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>0</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex />
+					<params />
+					<ipmi_sensor />
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username />
+					<password />
+					<publickey />
+					<privatekey />
+					<port />
+					<description />
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>IIS service</name>
+						</application>
+					</applications>
+					<valuemap/>
+					<logtimefmt/>
+					
+					
+				</item>
+				<item>
+					<name>IIS Service Port 443 (HTTPS)</name>
+					<type>0</type>
+					<snmp_community/>
+					<snmp_oid/>
+					<key>net.tcp.listen[443]</key>
+					<delay>30</delay>
+					<multiplier>0</multiplier>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>0</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex />
+					<params />
+					<ipmi_sensor />
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username />
+					<password />
+					<publickey />
+					<privatekey />
+					<port />
+					<description />
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>IIS service</name>
+						</application>
+					</applications>
+					<valuemap/>
+					<logtimefmt/>
+					
+					
+				</item>
+				<item>
+					<name>IIS Admin Service</name>
+					<type>0</type>
+					<snmp_community/>
+					<snmp_oid/>
+					<key>service_state[IISAdmin]</key>
+					<delay>30</delay>
+					<multiplier>0</multiplier>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>0</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex />
+					<params />
+					<ipmi_sensor />
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username />
+					<password />
+					<publickey />
+					<privatekey />
+					<port />
+					<description />
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>IIS service</name>
+						</application>
+					</applications>
+					<valuemap>
+						<name>Windows service state</name>
+					</valuemap>
+					<logtimefmt/>
+					
+					
+				</item>
+				<item>
+					<name>IIS World Side Web Publishing Service</name>
+					<type>0</type>
+					<snmp_community/>
+					<snmp_oid/>
+					<key>service_state[W3SVC]</key>
+					<delay>30</delay>
+					<multiplier>0</multiplier>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<value_type>0</value_type>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<formula>1</formula>
+					<delay_flex />
+					<params />
+					<ipmi_sensor />
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username />
+					<password />
+					<publickey />
+					<privatekey />
+					<port />
+					<description />
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>IIS service</name>
+						</application>
+					</applications>
+					<valuemap>
+						<name>Windows service state</name>
+					</valuemap>
+					<logtimefmt/>
+					
+					
+				</item>
+			</items>
+			<discovery_rules />
+			<macros />
+			<templates />
+			<screens />
+		</template>
+	</templates>
+	<triggers>
+		<trigger>
+			<expression>{Template TFS:service_state[TFSJobAgent].last()}&lt;&gt;0</expression>
+			<name>TFS background Job Agent Service Not Running</name>
+			<url />
+			<status>0</status>
+			<priority>2</priority>
+			<description />
+			<type>0</type>
+			<dependencies />
+		</trigger>
+	</triggers>
 </zabbix_export>
