@@ -253,7 +253,7 @@
 					
 				</item>
 				<item>
-					<name>IIS World Side Web Publishing Service</name>
+					<name>IIS World Wide Web Publishing Service</name>
 					<type>0</type>
 					<snmp_community/>
 					<snmp_oid/>
